@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eintech.App", "Eintech.App\Eintech.App.csproj", "{B1C5C6AE-C40B-4C86-B21E-E0FD6C5DE6DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eintech.Tests", "Eintech.Tests\Eintech.Tests.csproj", "{5E3B282B-3CA6-44EE-A900-CBBB441F301A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eintech.Models", "Eintech.Models\Eintech.Models.csproj", "{8F302ACE-2F53-423A-A8D5-E026A6367998}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eintech.Repositories", "Eintech.Repositories\Eintech.Repositories.csproj", "{EDC55947-2961-4A4F-B20F-562B424EAC0A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eintech.Data", "Eintech.Data\Eintech.Data.csproj", "{9950EEE9-4039-4BD2-BDB7-4B0F87A192F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Terraform", "Terraform", "{AD5945DC-6C7F-42FC-B70A-0154CA82C2EF}"
+	ProjectSection(SolutionItems) = preProject
+		applicationinsights.tf = applicationinsights.tf
+		appserviceplan.tf = appserviceplan.tf
+		locals.tf = locals.tf
+		main.tf = main.tf
+		output.tf = output.tf
+		resourcegroups.tf = resourcegroups.tf
+		sql.tf = sql.tf
+		storage.tf = storage.tf
+		variables.tf = variables.tf
+		windowsappservices.tf = windowsappservices.tf
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eintech.Services", "Eintech.Services\Eintech.Services.csproj", "{B568EF90-5BD6-43DF-A157-F4B4720FF340}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0C9C211D-377F-46FA-8EE2-45DF932C9FEC}"
+	ProjectSection(SolutionItems) = preProject
+		build-ci.yaml = build-ci.yaml
+		README.md = README.md
+		release-cd.yaml = release-cd.yaml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1C5C6AE-C40B-4C86-B21E-E0FD6C5DE6DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1C5C6AE-C40B-4C86-B21E-E0FD6C5DE6DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1C5C6AE-C40B-4C86-B21E-E0FD6C5DE6DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1C5C6AE-C40B-4C86-B21E-E0FD6C5DE6DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E3B282B-3CA6-44EE-A900-CBBB441F301A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E3B282B-3CA6-44EE-A900-CBBB441F301A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E3B282B-3CA6-44EE-A900-CBBB441F301A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E3B282B-3CA6-44EE-A900-CBBB441F301A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F302ACE-2F53-423A-A8D5-E026A6367998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F302ACE-2F53-423A-A8D5-E026A6367998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F302ACE-2F53-423A-A8D5-E026A6367998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F302ACE-2F53-423A-A8D5-E026A6367998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDC55947-2961-4A4F-B20F-562B424EAC0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDC55947-2961-4A4F-B20F-562B424EAC0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDC55947-2961-4A4F-B20F-562B424EAC0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDC55947-2961-4A4F-B20F-562B424EAC0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9950EEE9-4039-4BD2-BDB7-4B0F87A192F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9950EEE9-4039-4BD2-BDB7-4B0F87A192F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9950EEE9-4039-4BD2-BDB7-4B0F87A192F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9950EEE9-4039-4BD2-BDB7-4B0F87A192F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B568EF90-5BD6-43DF-A157-F4B4720FF340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B568EF90-5BD6-43DF-A157-F4B4720FF340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B568EF90-5BD6-43DF-A157-F4B4720FF340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B568EF90-5BD6-43DF-A157-F4B4720FF340}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {230782FE-3B8D-405B-80A1-8C1507D211DF}
+	EndGlobalSection
+EndGlobal

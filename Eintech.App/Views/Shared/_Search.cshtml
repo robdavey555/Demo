@@ -1,0 +1,13 @@
+﻿<form asp-controller="People" asp-action="Index" method="get" class="form-group">
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type="text" placeholder="name" name="searchName" autocomplete="off" />
+    </div>
+
+    <div class="form-group">
+        <label>Group</label>
+        <input class="form-control" type="text" placeholder="group" name="searchGroup" autocomplete="off" />
+    </div>
+    <button class="btn btn-info" value="Search" type="submit">Search</button>
+    <button class="btn btn-danger" value="Reset" type="reset">Reset</button>
+</form>

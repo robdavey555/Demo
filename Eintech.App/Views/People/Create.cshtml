@@ -1,0 +1,19 @@
+﻿@model CreatePersonViewModel
+
+    <form asp-controller="People" asp-action="Create" method="post" class="form-group">
+        <div class="form-group">
+            <label asp-for="Person.Name"></label>
+            <input asp-for="Person.Name" data-val="true" class="form-control" autocomplete="off">
+            <span asp-validation-for="Person.Name"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Groups"></label>
+            <select asp-items="Model.Groups" asp-for="Person.GroupId" class="form-control"></select>
+            <span asp-validation-for="Person.GroupId"></span>
+        </div>
+        <button class="btn btn-info" value="Create" type="submit">Create</button>
+    </form>
+
+@section scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

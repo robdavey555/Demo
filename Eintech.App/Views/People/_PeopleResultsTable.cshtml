@@ -1,0 +1,25 @@
+﻿@model List<PersonDTO>
+
+<div class="table-responsive">
+    <table class="table table-borderless table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>@Html.LabelFor(model => model.First().Id)</th>
+                <th>@Html.LabelFor(model => model.First().Name)</th>
+                <th>@Html.LabelFor(model => model.First().CreatedOn)</th>
+                <th>@Html.LabelFor(model => model.First().Group.Name)</th>
+            </tr>
+        </thead>
+        <tbody class="table-hover">
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => p.Id)</td>
+                    <td>@Html.DisplayFor(model => p.Name)</td>
+                    <td>@Html.DisplayFor(model => p.CreatedOn)</td>
+                    <td>@Html.DisplayFor(model => p.Group.Name)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

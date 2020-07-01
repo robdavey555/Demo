@@ -1,0 +1,25 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/.terraform/plugins/windows_386
+/Eintech.App/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
+/Eintech.App/bin/Debug/netcoreapp3.1
+/Eintech.Data/bin/Debug/netstandard2.0
+/Eintech.App/obj
+/Eintech.App/appsettings.Development.json
+/Eintech.App/Eintech.App.csproj.user
+/Eintech.Data/obj
+/Eintech.Models/bin/Debug/netstandard2.0
+/Eintech.Models/obj
+/Eintech.Repositories/bin/Debug/netstandard2.0
+/Eintech.Repositories/obj
+/Eintech.Services/bin/Debug/netstandard2.0
+/Eintech.Services/obj/Debug/netstandard2.0/.NETStandard,Version=v2.0.AssemblyAttributes.cs
+/Eintech.Services/obj
+/Eintech.Tests/bin/Debug/netcoreapp3.1
+/Eintech.Tests/obj
+/terraform.tfstate
+/terraform.tfstate.backup
+/.terraform.tfstate.lock.info

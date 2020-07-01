@@ -1,0 +1,82 @@
+pool:
+  name: Azure Pipelines
+  vmImage: 'windows-latest'
+
+trigger:
+  branches:
+    include:
+    - master
+
+variables:
+  Parameters.RestoreBuildProjects: '**/*.csproj'
+  BuildConfiguration: Release
+  Parameters.TestProjects: '**/*[Tt]ests/*.csproj'
+
+steps:
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-installer-task.TerraformInstaller@0
+  displayName: 'Install Terraform 0.12.24'
+  inputs:
+    terraformVersion: 0.12.24
+
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
+  displayName: 'Terraform : Init'
+  inputs:
+    backendServiceArm: 'RJD (90405a97-c5cd-4649-838a-73b38da0b454)'
+    backendAzureRmResourceGroupName: 'Static'
+    backendAzureRmStorageAccountName: rjdstaticstorage
+    backendAzureRmContainerName: 'tf-state'
+    backendAzureRmKey: terraform.tfstate
+
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
+  displayName: 'Terraform : Validate'
+  inputs:
+    command: validate
+
+- task: DotNetCoreCLI@2
+  displayName: Restore
+  inputs:
+    command: restore
+    projects: '$(Parameters.RestoreBuildProjects)'
+
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    projects: '$(Parameters.RestoreBuildProjects)'
+    arguments: '--configuration $(BuildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: Test
+  inputs:
+    command: test
+    projects: '$(Parameters.TestProjects)'
+    arguments: '--configuration $(BuildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
+
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage '
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
+
+- task: DotNetCoreCLI@2
+  displayName: Publish
+  inputs:
+    command: publish
+    publishWebProjects: True
+    arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+    zipAfterPublish: True
+
+- task: CopyFiles@2
+  displayName: 'Copy Terraform Files'
+  inputs:
+    SourceFolder: '$(agent.builddirectory)/s/'
+    Contents: |
+     *.tf
+     *.tfvars
+     *.pfx
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/Terraform'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()

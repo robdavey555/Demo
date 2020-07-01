@@ -1,0 +1,16 @@
+﻿@model PeopleViewModel
+
+@{
+    ViewData["Title"] = "People";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="card">
+    <div class="card-body">
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+        <partial name="_Search" />
+    </div>
+</div>
+<partial name="_PeopleResultsTable" model="Model.People" />
